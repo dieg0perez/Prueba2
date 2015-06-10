@@ -145,6 +145,10 @@ static int tz_init(struct devfreq_msm_adreno_tz_data *priv,
 	return ret;
 }
 
+#ifdef CONFIG_ADRENO_IDLER
+extern int adreno_idler(struct devfreq_dev_status stats, struct devfreq *devfreq,
+		 unsigned long *freq);
+#endif
 static int tz_get_target_freq(struct devfreq *devfreq, unsigned long *freq,
 				u32 *flag)
 {
@@ -159,6 +163,12 @@ static int tz_get_target_freq(struct devfreq *devfreq, unsigned long *freq,
 	if (result) {
 		pr_err(TAG "get_status failed %d\n", result);
 		return result;
+	}
+
+	/* Prevent overflow */
+	if (stats.busy_time >= (1 << 24) || stats.total_time >= (1 << 24)) {
+		stats.busy_time >>= 7;
+		stats.total_time >>= 7;
 	}
 
 	*freq = stats.current_frequency;
@@ -182,7 +192,11 @@ static int tz_get_target_freq(struct devfreq *devfreq, unsigned long *freq,
 	}
 #endif
 
+<<<<<<< HEAD
 >>>>>>> 499672d... Update and enable powersuspend
+=======
+>>>>>>> 71d2013... Introduce Adreno idler for devfreq-based Adreno devices
+>>>>>>> 1445ecf... Adreno idler
 	priv->bin.total_time += stats.total_time;
 	priv->bin.busy_time += stats.busy_time;
 
