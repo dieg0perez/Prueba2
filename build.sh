@@ -69,10 +69,10 @@ case $ch in
 esac
 }
 device
-make -j5
-make Image -j5
-make dtbs -j5
-make modules -j5
+make -j4
+make Image -j4
+make dtbs -j4
+make modules -j4
 $DTBTOOL -2 -o $KERNEL_DIR/arch/arm64/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/
 lettuce()
 {
