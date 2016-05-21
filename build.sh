@@ -76,7 +76,7 @@ make modules -j4
 $DTBTOOL -2 -o $KERNEL_DIR/arch/arm64/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/
 lettuce()
 {
-echo "$gre Running new lettuce function$white"
+echo -e "$gre Running new lettuce function$white"
 mv arch/arm64/boot/dt.img ~/radon_outl/tools
 cp drivers/staging/prima/wlan.ko ~/radon_outl/system/lib/modules/
 cp fs/nls/nls_utf8.ko ~/radon_outl/system/lib/modules/
@@ -95,7 +95,7 @@ mv *.zip ~/radon_final/
 }
 tomato()
 {
-echo "$gre Running new tomato function$white"
+echo -e "$gre Running new tomato function$white"
 mv arch/arm64/boot/dt.img ~/radon_out/dtb
 cp drivers/staging/prima/wlan.ko ~/radon_out/modules/
 cp fs/nls/nls_utf8.ko ~/radon_out/modules/
