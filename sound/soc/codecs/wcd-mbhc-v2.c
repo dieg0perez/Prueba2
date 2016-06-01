@@ -265,10 +265,8 @@ static int wcd_event_notify(struct notifier_block *self, unsigned long val,
 			  mbhc->is_hs_recording);
 		break;
 	case WCD_EVENT_POST_MICBIAS_2_ON:
-#ifndef CONFIG_MACH_CP8675
 		if (!mbhc->micbias_enable)
 			goto out_micb_en;
-#endif
 		if (mbhc->mbhc_cb->mbhc_common_micb_ctrl) {
 			mbhc->mbhc_cb->mbhc_common_micb_ctrl(codec,
 					MBHC_COMMON_MICB_PRECHARGE,
