@@ -479,9 +479,12 @@ struct input_keymap_entry {
 /* Gesture keycodes */
 #define KEY_GESTURE_SLIDE_DOWN		249
 #define KEY_GESTURE_SLIDE_LEFT		250
-#define KEY_GESTURE_SLIDE_RIGHT	251
+#define KEY_GESTURE_SLIDE_RIGHT		251
 #define KEY_GESTURE_SLIDE_C		252
 #define KEY_GESTURE_SLIDE_O		253
+#define KEY_GESTURE_SLIDE_M		254
+#define KEY_GESTURE_SLIDE_O		255
+#define KEY_GESTURE_SLIDE_E		256
 
 /* Code 255 is reserved for special needs of AT keyboard driver */
 
