@@ -128,6 +128,16 @@ config CPU_FREQ_DEFAULT_GOV_DARKNESS
 	bool "darkness"
 	select CPU_FREQ_GOV_DARKNESS
 
+config CPU_FREQ_DEFAULT_GOV_IMPULSE
+	bool "impulse"
+	select CPU_FREQ_GOV_IMPULSE
+	help
+	  Use the CPUFreq governor 'impulse' as default. This allows
+	  you to get a full dynamic cpu frequency capable system by simply
+	  loading your cpufreq low-level hardware driver, using the
+	  'impulse' governor for latency-sensitive workloads.
+
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -234,6 +244,14 @@ config CPU_FREQ_GOV_SMARTMAX
 
 config CPU_FREQ_GOV_DARKNESS
 	tristate "'darkness' cpufreq policy governor"
+
+config CPU_FREQ_GOV_IMPULSE
+	tristate "'interactive' cpufreq policy governor"
+	help
+	  'impulse' - This driver adds a dynamic cpufreq policy governor
+	  designed for latency-sensitive workloads.
+
+	  If in doubt, say N.
 
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
